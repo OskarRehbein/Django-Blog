@@ -1,1 +1,18 @@
-<h1>Hello World! Sus</h1>
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+<h1>Posts</h1>
+
+<ul>
+{% for post in object_list %}
+    <li> <a href="{% url 'post-detail' post.pk %}"> {{ post.title }}</a> - {{ post.author.last_name }} {{ post.author.first_name}} - {{post.author.email}} <br/>
+    {{ post.body }} </li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}
